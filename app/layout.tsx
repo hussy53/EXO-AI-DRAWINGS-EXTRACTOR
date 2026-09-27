@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Exo Drawings Extractor",
-  description: "Review glass and aluminium schedules extracted from drawing PDFs.",
+  title: "Exo AI Drawings Extractor",
+  description: "Extract reviewable mirror and glass takeoffs from plans, sections, elevations, and detail drawings.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
