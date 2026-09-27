@@ -31,7 +31,7 @@ export default function Home(){
   async function chooseFile(file?:File){
     if(!file)return;if(fileUrl)URL.revokeObjectURL(fileUrl);setFileName(file.name);setFileUrl(URL.createObjectURL(file));setItems([]);setSelected("");setActivePage(1);setAnalyzing(true);setAnalysisStep(1);setMessage("Opening drawing pages…");
     try{
-      const pdfjs=await import("pdfjs-dist");pdfjs.GlobalWorkerOptions.workerSrc=new URL("pdfjs-dist/build/pdf.worker.min.mjs",import.meta.url).toString();
+      const pdfjs=await import("pdfjs-dist");pdfjs.GlobalWorkerOptions.workerSrc="/pdf.worker.min.mjs";
       const pdf=await pdfjs.getDocument({data:await file.arrayBuffer()}).promise;setPageCount(pdf.numPages);const found:Item[]=[];
       for(let pageNumber=1;pageNumber<=pdf.numPages;pageNumber++){
         setAnalysisStep(1);setMessage(`Reading page ${pageNumber} of ${pdf.numPages}…`);const page=await pdf.getPage(pageNumber);const content=await page.getTextContent();
